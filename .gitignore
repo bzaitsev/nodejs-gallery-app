@@ -1,0 +1,4 @@
+node_modules/
+.vscode/
+public/design/dist/
+public/design/uploads/

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery</title>
+
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+<body>
+  
+  <header class="app-header gradient">
+    <form class="form-upload" id="form-image-upload">
+      <label>Image to upload <input type="file" required id="image_file"></label>
+      <input type="submit" value="Upload Image">
+    </form>
+    <!-- <form action=""><input type="submit" value="Upload Video"><input class="form-field" type="file" required></form> -->
+  </header>
+
+  <div class="app-content">
+    <h1 class="page-home_h1">
+      <span>Images</span>
+      <span>Videos</span>
+    </h1>
+
+    <div class="page-home_content_layout">
+      <ul class="page-home_content_images-list">
+        <li class="page-home_content-item">
+          <img 
+            class="page-home_content_img" 
+            src="https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg" 
+            alt="">
+          <span class="page-home_content-item-title">Title</span>
+          <span class="page-home_content-item-desc">Description</span>
+        </li>
+      </ul>
+
+      <ul class="page-home_content_videos-list">
+        <li class="page-home_content-item">
+          <div class="page-home_content-video-wrapper">
+              <iframe 
+              class="page-home_content_video" 
+              width="100%" 
+              height="auto"
+              src="https://www.youtube.com/embed/6m4VzpV7fc8?ecver=1" 
+              frameborder="0" 
+              allow="encrypted-media" 
+              allowfullscreen></iframe>            
+          </div>
+          <span class="page-home_content-item-title">Title</span>
+          <span class="page-home_content-item-desc">Description</span>            
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <footer class="app-footer">App Footer</footer> -->
+
+  <script src="//localhost:35729/livereload.js"></script>
+  <script src="dist/index.js" defer></script>  
+</body>
+</html>

@@ -1,0 +1,35 @@
+@import '~normalize.css/normalize.css';
+@import './home-page.css'; 
+
+html {
+  font-family: Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+} 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.form-field {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.gradient {
+  background: -moz-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(4,158,209,1) 50%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(4,158,209,1)), color-stop(100%, rgba(255,255,255,1))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(4,158,209,1) 50%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(4,158,209,1) 50%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(4,158,209,1) 50%, rgba(255,255,255,1) 100%); /* ie10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFFFFF',GradientType=1 ); /* ie6-9 */  
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(4,158,209,1) 50%, rgba(255,255,255,1) 100%); /* w3c */
+}
+.form-upload {
+  padding: 10px 0;
+}
+.form-upload [type="file"] {}
+.form-upload [type="submit"] {
+  display: block;
+  margin-top: 10px;
+}
