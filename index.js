@@ -1,21 +1,31 @@
-const config = require('./config'),
-      express = require('express'), 
-      webServer = express(),
-      http = require('http').Server(webServer),
-      io = require('socket.io')(http),
-      routes = require('./routes'),
-      Uploader = require('./uploader');
+const fs = require('fs');
+const cors = require('cors');
+const express = require('express'); 
+const app = express();
+const http = require('http').Server(app);
+const config = require('./config');
+const cache = require('./cache');
+const routes = require('./routes');
+const Uploader = require('./uploader');
 
 const imageUploader = new Uploader({
   destination: config.uploadImagesPath
 });
 
-webServer
+fs.readdir(config.uploadImagesPath, (err, files) => {
+  if (err) return console.error('readdir:', err);
+  files.forEach(file => cache.images.push(file));
+});
+
+app
+  .set('view engine', 'ejs')
   .use(express.static(config.staticPath))
-  .post(routes['image-upload']['path'], imageUploader.single('file'), routes['image-upload']['action'])
-  .get(routes['file-download']['path'], routes['file-download']['action']);
+  .use(cors())
+  .get('/', routes.home)
+  .get('/api/download/', routes.download)
+  .post('/api/image-upload/', imageUploader.single('file'), routes.imageUpload)
 
 http.listen(config.port, error => { 
-  if (error) return console.error('Server start error: ', error);   
+  if (error) return console.error('Server start: ', error);   
   console.log(`Server is listening on port ${config.port}`);
 });
