@@ -1,0 +1,92 @@
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin: 0;
+}
+
+.app-footer {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.Images {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Images__item {
+  height: 40vh;
+  flex-grow: 1;
+}
+.Images__item:last-of-type {
+  flex-grow: 10;
+}
+.Images__item.add {
+  position: relative;
+  width: 250px;
+  background: linear-gradient(135deg, #132a60, #0a0f21);
+}
+.Images__item.add::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  background: url(./../images/add.png) center/50% no-repeat;
+  animation: scale 2s linear infinite alternate;
+}
+@keyframes scale {
+  0% { transform: scale(1) }
+  100% {transform: scale(1.1)}
+}
+.Images [type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+}
+.Images img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  aspect-ratio: 1;
+}
+
+/* Portrait */
+@media (max-aspect-ratio: 1/1) {
+  .Images__item {
+    height: 30vh;
+  }
+}
+
+/* Short screens */
+@media (max-height: 480px) {
+  .Images__item {
+    height: 80vh;
+  }
+}
+
+/* Smaller screens in portrait */
+@media (max-aspect-ratio: 1/1) and (max-width: 555px) {
+  .Images {
+    flex-direction: row;
+  }
+  .Images__item {
+    height: auto;
+    width: 100%;
+  }
+  .Images__item.add {
+    height: 30vh;
+  }
+  .Images img {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+    aspect-ratio: unset;
+  }
+}

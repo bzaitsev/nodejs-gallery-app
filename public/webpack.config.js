@@ -2,12 +2,14 @@ const path = require('path'),
       LiveReloadPlugin = require('webpack-livereload-plugin'),
       ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const CLIENT_PATH = path.resolve(__dirname, 'src');
+
 let config = {
   entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './build'),
     filename: 'index.js',
-    publicPath: 'dist/'
+    publicPath: 'build/'
   },
   devServer: {
     overlay: true
@@ -19,6 +21,16 @@ let config = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
+        include: [CLIENT_PATH],
+        use: {
+          loader: 'file-loader',
+          options: {
+
+            esModule: false
+          }
+        }
+      }, {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: '/node_modules/'

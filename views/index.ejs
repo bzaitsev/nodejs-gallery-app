@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="build/styles.css">
+  <script defer src="build/index.js"></script>
+</head>
+
+<body>
+  <ul class="Images">
+    <li id="add-item" class="Images__item add"><input id="image-file" type="file"></li>
+    <% images.forEach(image => { %>
+      <li class="Images__item"><img src="uploads/<%= image %>" loading="lazy"></li>
+    <% }) %>
+  </div>
+</body>
+</html>
