@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open",
-    "start": "npm-run-all --parallel be:watch fe:watch",
-    "fe:build": "webpack --mode production",
-    "fe:bundle": "webpack --mode development",
-    "fe:watch": "webpack --mode development --watch",
-    "be:watch": "nodemon \"./../../index.js\" --watch \"./../../\""
+    "start-all": "npm-run-all --parallel watch watch-server",
+    "build": "webpack --mode production",
+    "bundle": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "watch-server": "nodemon \"./../index.js\" --watch \"./../\""
   },
   "author": "",
   "license": "ISC",
@@ -33,7 +33,6 @@
     "webpack-livereload-plugin": "^2.1.1"
   },
   "dependencies": {
-    "bootstrap": "^5.2.0",
     "event-stream": "^4.0.1",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.0"

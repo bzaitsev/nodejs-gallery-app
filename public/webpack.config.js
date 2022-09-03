@@ -8,8 +8,7 @@ let config = {
   entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'index.js',
-    publicPath: 'build/'
+    filename: 'index.js'
   },
   devServer: {
     overlay: true
@@ -26,7 +25,6 @@ let config = {
         use: {
           loader: 'file-loader',
           options: {
-
             esModule: false
           }
         }
