@@ -22,7 +22,7 @@ routes.download = (request, response, next) => {
   });
 };
 
-routes.imageUpload = (request, response) => {
+routes.upload = (request, response) => {
   cache.images.unshift(request.file.filename);
   response.send({
     image: request.file.path.replace('\\', '/').replace('public', '/')

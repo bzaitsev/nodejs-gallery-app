@@ -8,13 +8,20 @@ const cache = require('./cache');
 const routes = require('./routes');
 const Uploader = require('./uploader');
 
-const imageUploader = new Uploader({
-  destination: config.uploadImagesPath
+const uploader = new Uploader({
+  destination: config.uploadPath
 });
 
-fs.readdir(config.uploadImagesPath, (err, files) => {
+fs.readdir(config.uploadPath, (err, files) => {
   if (err) return console.error('readdir:', err);
-  files.forEach(file => cache.images.push(file));
+
+  files
+    .map(fileName => ({
+      name: fileName,
+      time: fs.statSync(config.uploadPath + fileName).mtime.getTime()
+    }))
+    .sort((a, b) => b.time - a.time)
+    .forEach(file => cache.images.push(file.name));
 });
 
 app
@@ -23,7 +30,7 @@ app
   .use(cors())
   .get('/', routes.home)
   .get('/api/download/', routes.download)
-  .post('/api/image-upload/', imageUploader.single('file'), routes.imageUpload)
+  .post('/api/image-upload/', uploader.single('file'), routes.upload)
 
 http.listen(config.port, error => { 
   if (error) return console.error('Server start: ', error);   
