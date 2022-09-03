@@ -11,7 +11,7 @@
 
 <body>
   <ul class="Images">
-    <li id="add-item" class="Images__item add"><input id="image-file" type="file"></li>
+    <li id="add-item" class="Images__item add"><input id="image-file" type="file" accept="image/png, image/jpeg, image/webp"></li>
     <% images.forEach(image => { %>
       <li class="Images__item"><img src="uploads/<%= image %>" loading="lazy"></li>
     <% }) %>
