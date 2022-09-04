@@ -1,7 +1,5 @@
 # Gallery <img src="https://raw.githubusercontent.com/bzaitsev/nodejs-gallery-app/master/public/favicon.png" height="24">
 
-# Gallery <img src="https://raw.githubusercontent.com/bzaitsev/nodejs-gallery-app/master/public/nodejs-2.png" height="24">
-
 <img src="https://raw.githubusercontent.com/bzaitsev/nodejs-gallery-app/master/public/src/images/ui.jpg" alt="UI" width="100%" loading="lazy">
 
 ## Description
