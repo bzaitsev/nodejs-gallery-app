@@ -1,6 +1,6 @@
-const multer  = require('multer'),  // Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. Multer adds a body object and a file or files object to the request object.
-      crypto = require('crypto'),
-      path = require('path');
+const multer  = require('multer');  // Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. Multer adds a body object and a file or files object to the request object.
+const crypto = require('node:crypto');
+const path = require('node:path');
 
 class Uploader {
   constructor(options) {
